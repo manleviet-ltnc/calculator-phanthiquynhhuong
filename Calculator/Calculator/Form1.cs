@@ -19,7 +19,7 @@ namespace Calculator
 
         bool isTyingNumber = false;
 
-     enum PhepToan {None, Cong,Tru,Nhan,Chia};
+        enum PhepToan { None, Cong, Tru, Nhan, Chia };
         PhepToan pheptoan;
         double nho;
         private void NhapSo(object sender, EventArgs e)
@@ -62,10 +62,10 @@ namespace Calculator
             double ketqua = 0.0;
             switch (pheptoan)
             {
-                case PhepToan.Cong:ketqua = nho + tam;break;
-                case PhepToan.Tru:ketqua = nho - tam;break;
-                case PhepToan.Nhan:ketqua = nho * tam;break;
-                case PhepToan.Chia:ketqua = nho / tam;break;
+                case PhepToan.Cong: ketqua = nho + tam; break;
+                case PhepToan.Tru: ketqua = nho - tam; break;
+                case PhepToan.Nhan: ketqua = nho * tam; break;
+                case PhepToan.Chia: ketqua = nho / tam; break;
             }
             //gan ket qua tinh duoc len lblDisplay
             lblDisplay.Text = ketqua.ToString();
@@ -81,7 +81,7 @@ namespace Calculator
 
         private void frmMain_KeyPress(object sender, KeyPressEventArgs e)
         {
-        switch(e.KeyChar)
+            switch (e.KeyChar)
             {
                 case '0':
                 case '1':
@@ -136,8 +136,25 @@ namespace Calculator
             }
         }
 
+        private void btnThapPhan_Click(object sender, EventArgs e)
+        {
+            if (lblDisplay.Text.Contains("."))
+            {
+                if (lblDisplay.Text == "0.")
+                {
+                    lblDisplay.Text = "";
+                    Nhapso("0.");
+                }
+                return;
+            }
+            lblDisplay.Text += ".";
+        }
     }
 }
+
+
+    
+
 
 
   
